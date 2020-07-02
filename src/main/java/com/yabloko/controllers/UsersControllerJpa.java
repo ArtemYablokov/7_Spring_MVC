@@ -12,13 +12,6 @@ import com.yabloko.repositories.UsersRepository;
 
 import java.util.List;
 
-/**
- * 18.04.2018
- * UsersWithJpaController
- *
- * @author Sidikov Marsel (First Software Engineering Platform)
- * @version v1.0
- */
 @Controller
 public class UsersWithJpaController {
 

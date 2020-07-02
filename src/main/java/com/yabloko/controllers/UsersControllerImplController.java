@@ -10,13 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
-/**
- * 18.04.2018
- * UsersControllerSimple
- *
- * @author Sidikov Marsel (First Software Engineering Platform)
- * @version v1.0
- */
 public class UsersControllerImplements implements Controller {
 
     @Autowired
@@ -30,9 +23,9 @@ public class UsersControllerImplements implements Controller {
             ModelAndView modelAndView = new ModelAndView();
             modelAndView.setViewName("users");
             modelAndView.addObject("usersFromServer", users);
+
             return modelAndView;
         }
-
         return null;
     }
 }
