@@ -16,13 +16,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-/**
- * 18.04.2018
- * JpaConfiguration
- *
- * @author Sidikov Marsel (First Software Engineering Platform)
- * @version v1.0
- */
+
+// ЧТОБЫ ИСПОЛЬЗОВАТЬ РЕПО !!!
+
 @Configuration
 @ComponentScan(value = "com.yabloko")
 @EnableJpaRepositories(basePackages = "com.yabloko.repositories")
@@ -67,5 +63,4 @@ public class JpaConfiguration {
         transactionManager.setEntityManagerFactory(entityManagerFactory);
         return transactionManager;
     }
-
 }

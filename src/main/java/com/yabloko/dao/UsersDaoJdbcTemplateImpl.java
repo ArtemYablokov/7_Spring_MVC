@@ -12,13 +12,6 @@ import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.util.*;
 
-/**
- * 04.04.2018
- * UsersDaoJdbcTemplateImpl
- *
- * @author Sidikov Marsel (First Software Engineering Platform)
- * @version v1.0
- */
 @Component
 public class UsersDaoJdbcTemplateImpl implements UsersDao {
 

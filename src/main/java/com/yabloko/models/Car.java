@@ -2,28 +2,23 @@ package com.yabloko.models;
 
 import lombok.*;
 
-/**
- * 04.04.2018
- * Car
- *
- * @author Sidikov Marsel (First Software Engineering Platform)
- * @version v1.0
- */
-
+import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 @Builder
-
 @ToString(exclude = "owner")
+
+@Entity
+@Table(name = "apple_car")
 public class Car {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String model;
+
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
     private User owner;
-
-
 }
-
-

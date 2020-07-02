@@ -14,12 +14,12 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.*;
 
 @Controller
-public class UsersController {
+public class UsersControllerDao {
 
     @Autowired
     private UsersDao usersDao;
 
-    @RequestMapping(path = "/users", method = RequestMethod.GET)
+    @RequestMapping(path = "/usersss", method = RequestMethod.GET)
     public ModelAndView getAllUsers(@RequestParam(value = "first_name", required = false) String firstName) {
         List<User> users = null;
 
@@ -33,7 +33,7 @@ public class UsersController {
         return modelAndView;
     }
 
-    @RequestMapping(path = "/users/{user-id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/usersss/{user-id}", method = RequestMethod.GET)
     public ModelAndView getUserById(@PathVariable("user-id") Long userId) {
         Optional<User> optional = usersDao.find(userId);
         ModelAndView modelAndView = new ModelAndView("users");

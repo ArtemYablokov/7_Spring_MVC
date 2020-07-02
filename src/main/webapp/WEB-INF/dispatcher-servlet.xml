@@ -13,7 +13,7 @@
         <property name="username" value="postgres"/>
         <property name="password" value="apple"/>
         <property name="driverClassName" value="org.postgresql.Driver"/>
-        <property name="url" value="jdbc:postgresql://localhost:5432/fix_artem"/>
+        <property name="url" value="jdbc:postgresql://localhost:5432/fix_mvc"/>
     </bean>
 
 <!--
@@ -21,7 +21,7 @@
     !!! УРЛ = ID !!!
     HandlerMapping по ID БИНА :  beanNameUrlHandlerMapping
 -->
-    <bean id="/simple" class="com.yabloko.controllers.UsersControllerImplements"/>
+    <bean id="/simple" class="com.yabloko.controllers.UsersControllerImplController"/>
 
 <!-- имя id - обязательное -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

@@ -8,12 +8,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import com.yabloko.models.User;
+
 import com.yabloko.repositories.UsersRepository;
 
 import java.util.List;
 
 @Controller
-public class UsersWithJpaController {
+public class UsersControllerJpa {
 
     @Autowired
     private UsersRepository usersRepository;

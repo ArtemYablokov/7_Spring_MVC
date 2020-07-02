@@ -1,6 +1,7 @@
 package com.yabloko.controllers;
 
 import com.yabloko.models.Car;
+//import com.yabloko.repositories.CarsRepository;
 import com.yabloko.repositories.CarsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,13 +13,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-public class CarsController {
+public class CarsControllerJpa {
 
     @Autowired
     private CarsRepository carsRepository;
 
-
-    @RequestMapping(path = "/cars", method = RequestMethod.GET)
+    @RequestMapping(path = "/carsss", method = RequestMethod.GET)
     @ResponseBody
     public String getCarsByOwnerFirstName(@RequestParam(name = "first_name", defaultValue = "") String firstName) {
         List<Car> cars = carsRepository.findAllByOwner_FirstName(firstName);
