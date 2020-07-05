@@ -22,16 +22,16 @@ public class UsersDaoJdbcTemplateImpl implements UsersDao {
 
     //language=SQL
     private final String SQL_SELECT_USER_WITH_CARS =
-            "SELECT users.*, cars.id as car_id, cars.model " +
-                    "FROM users LEFT JOIN cars ON users.id = cars.owner_id WHERE users.id = ?";
+            "SELECT apple_user.*, apple_car.id as car_id, apple_car.model " +
+                    "FROM apple_user LEFT JOIN apple_car ON apple_user.id = apple_car.owner_id WHERE apple_user.id = ?";
 
     private final String SQL_SELECT_USERS_WITH_CARS =
-            "SELECT users.*, cars.id as car_id, cars.model " +
-                    "FROM users LEFT JOIN cars ON users.id = cars.owner_id ";
+            "SELECT apple_user.*, apple_car.id as car_id, apple_car.model " +
+                    "FROM apple_user LEFT JOIN apple_car ON apple_user.id = apple_car.owner_id ";
 
     //language=SQL
     private final String SQL_INSERT_USER = "" +
-            "INSERT INTO users(first_name, last_name) VALUES (:firstName, :lastName)";
+            "INSERT INTO apple_user(first_name, last_name) VALUES (:firstName, :lastName)";
 
     @Autowired
     public UsersDaoJdbcTemplateImpl(DataSource dataSource) {
@@ -66,17 +66,17 @@ public class UsersDaoJdbcTemplateImpl implements UsersDao {
     };
 
     //language=SQL
-    private final String SQL_SELECT_ALL_BY_FIRST_NAME = "SELECT * FROM users WHERE first_name = ?";
+    private final String SQL_SELECT_ALL_BY_FIRST_NAME = "SELECT * FROM apple_user WHERE first_name = ?";
 
     private final String SQL_SELECT_ALL_BY_FIRST_NAME_WITH_CARS = "SELECT u.*, c.id AS car_id, c.model " +
-            "FROM users AS u JOIN cars AS c ON u.id = c.owner_id WHERE first_name = ?";
+            "FROM apple_user AS u JOIN apple_car AS c ON u.id = c.owner_id WHERE first_name = ?";
     @Override
     public List<User> findAllByFirstName(String firstName) {
         return template.query(SQL_SELECT_ALL_BY_FIRST_NAME_WITH_CARS, userRowMapperWithCars, firstName);
     }
 
 
-    private final String SQL_SELECT_BY_ID = "SELECT * FROM users WHERE id = :id";
+    private final String SQL_SELECT_BY_ID = "SELECT * FROM apple_user WHERE id = :id";
     @Override
     public Optional<User> find(Long id) {
 

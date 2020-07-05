@@ -19,7 +19,7 @@ public class UsersControllerDao {
     @Autowired
     private UsersDao usersDao;
 
-    @RequestMapping(path = "/usersss", method = RequestMethod.GET)
+    @RequestMapping(path = "/users-dao", method = RequestMethod.GET)
     public ModelAndView getAllUsers(@RequestParam(value = "first_name", required = false) String firstName) {
         List<User> users = null;
 
@@ -33,7 +33,7 @@ public class UsersControllerDao {
         return modelAndView;
     }
 
-    @RequestMapping(path = "/usersss/{user-id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/users-dao/{user-id}", method = RequestMethod.GET)
     public ModelAndView getUserById(@PathVariable("user-id") Long userId) {
         Optional<User> optional = usersDao.find(userId);
         ModelAndView modelAndView = new ModelAndView("users");

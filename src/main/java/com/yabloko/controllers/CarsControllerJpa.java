@@ -18,9 +18,9 @@ public class CarsControllerJpa {
     @Autowired
     private CarsRepository carsRepository;
 
-    @RequestMapping(path = "/carsss", method = RequestMethod.GET)
+    @RequestMapping(path = "/cars", method = RequestMethod.GET)
     @ResponseBody
-    public String getCarsByOwnerFirstName(@RequestParam(name = "first_name", defaultValue = "") String firstName) {
+    public String getCarsByOwnerFirstName(@RequestParam(name = "first_name", defaultValue = "a") String firstName) {
         List<Car> cars = carsRepository.findAllByOwner_FirstName(firstName);
         return cars.toString();
     }

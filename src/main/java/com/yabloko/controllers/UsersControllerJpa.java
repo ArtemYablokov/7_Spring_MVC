@@ -19,7 +19,7 @@ public class UsersControllerJpa {
     @Autowired
     private UsersRepository usersRepository;
 
-    @RequestMapping(path = "/jpa/users", method = RequestMethod.GET)
+    @RequestMapping(path = "/users-jpa", method = RequestMethod.GET)
     public ModelAndView getUsers(@RequestParam(required = false, name = "first_name") String firstName) {
         List<User> users = null;
 
@@ -33,10 +33,10 @@ public class UsersControllerJpa {
         return modelAndView;
     }
 
-    @RequestMapping(path = "/jpa/users", method = RequestMethod.POST)
+    @RequestMapping(path = "/users-jpa", method = RequestMethod.POST)
     public String addUser(UserForm userForm) {
         User newUser = User.from(userForm);
         usersRepository.save(newUser);
-        return "redirect:/jpa/users";
+        return "redirect:/users-jpa";
     }
 }
