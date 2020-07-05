@@ -18,6 +18,7 @@ public class UsersDaoJdbcTemplateImpl implements UsersDao {
     private JdbcTemplate template;
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
+    
     private Map<Long, User> usersMap = new HashMap<>();
 
     //language=SQL
