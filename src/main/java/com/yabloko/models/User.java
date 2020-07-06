@@ -25,13 +25,21 @@ public class User {
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
+    @Column(name = "password")
+    private String password;
 
     @OneToMany(mappedBy = "owner")
     private List<Car> cars;
+
+    public User() {
+    }
+
     public static User from(UserForm form) {
-        return User.builder()
+        return User
+                .builder()
                 .firstName(form.getFirstName())
                 .lastName(form.getLastName())
                 .build();
+
     }
 }
