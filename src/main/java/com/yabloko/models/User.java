@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -28,18 +29,16 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    @OneToMany(mappedBy = "owner")
-    private List<Car> cars;
-
-    public User() {
-    }
+    @OneToMany(mappedBy = "owner", fetch = FetchType.EAGER) // OOOOOO
+    private List<Car> cars = new ArrayList<>();
 
     public static User from(UserForm form) {
         return User
                 .builder()
                 .firstName(form.getFirstName())
                 .lastName(form.getLastName())
+                .password(form.getPassword())
+                .cars(new ArrayList<>())
                 .build();
-
     }
 }

@@ -1,8 +1,11 @@
 package com.yabloko.controllers;
 
 import com.yabloko.forms.UserForm;
+import com.yabloko.models.Car;
+import com.yabloko.repositories.CarsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +21,8 @@ public class UsersControllerJpa {
 
     @Autowired
     private UsersRepository usersRepository;
+    @Autowired
+    private CarsRepository carsRepository;
 
     @RequestMapping(path = "/users-jpa", method = RequestMethod.GET)
     public ModelAndView getUsers(@RequestParam(required = false, name = "first_name") String firstName) {
@@ -34,9 +39,35 @@ public class UsersControllerJpa {
     }
 
     @RequestMapping(path = "/users-jpa", method = RequestMethod.POST)
-    public String addUser(UserForm userForm) {
+    public String addUser(UserForm userForm, @RequestParam String model) {
         User newUser = User.from(userForm);
         usersRepository.save(newUser);
+        if (model != null) {
+            carsRepository.save(
+                    Car.builder()
+                            .model(model)
+                            .owner(newUser)
+                            .build());
+        }
         return "redirect:/users-jpa";
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

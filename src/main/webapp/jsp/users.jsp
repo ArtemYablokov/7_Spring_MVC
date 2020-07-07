@@ -17,6 +17,12 @@
         <label for="lastName">Last Name
             <input class="input-field" type="text" id="lastName" name="lastName">
         </label>
+        <label for="model">Model
+            <input class="input-field" type="text" id="model" name="model">
+        </label>
+        <label for="password">Password
+            <input class="input-field" type="password" id="password" name="password">
+        </label>
         <input type="submit" value="Add user">
     </form>
 </div>
@@ -34,6 +40,11 @@
             <tr>
                 <td>${user.firstName}</td>
                 <td>${user.lastName}</td>
+                <td>
+                    <c:forEach items="${user.cars}" var="car">
+                        ${car.model}
+                    </c:forEach>
+                </td>
             </tr>
         </c:forEach>
     </table>
