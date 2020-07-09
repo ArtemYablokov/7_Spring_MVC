@@ -1,2 +1,11 @@
 # 7_Spring_MVC
-бла бла
+
+диспатчер 
+- обрабатывает все запросы - здесь прописываем БИНЫ
+- вьюрезолвер
+- beanNameUrlHandlerMapping @Controller
+второй тип мапинга
+- RequestMappingHandlerMapping = @Controller + 
+- @RequestMapping(path = "/users", method = RequestMethod.GET) 
+JPA(толстый конфигурационный фаил)
+- @Entity + JPA(конфигурационный фаил) ----->>>>> REPOSITORY
