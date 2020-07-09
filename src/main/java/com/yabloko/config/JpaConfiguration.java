@@ -49,7 +49,7 @@ public class JpaConfiguration {
         HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
         adapter.setDatabase(Database.POSTGRESQL);
 
-        emf.setJpaVendorAdapter(adapter); 
+        emf.setJpaVendorAdapter(adapter);
         emf.setJpaProperties(jpaProperties());
 
         return emf;
