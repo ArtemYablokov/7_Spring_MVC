@@ -33,25 +33,22 @@ public class UsersControllerDao {
         return modelAndView;
     }
 
+    // обращение к ресурсу в REST-стиле
     @RequestMapping(path = "/users-dao/{user-id}", method = RequestMethod.GET)
     public ModelAndView getUserById(@PathVariable("user-id") Long userId) {
         Optional<User> optional = usersDao.find(userId);
         ModelAndView modelAndView = new ModelAndView("users");
 
-        // ЕСЛИ НЕТ ПОЛЬЗОВАТЕЛЕЙ - НИЧЕГО НЕ ПЕРЕДАЕТСЯ В JSP - будет пустой список все ОК
-        System.out.println( Arrays.asList(new ArrayList<>()));
-        System.out.println("test");
 
         if (optional.isPresent())
             modelAndView.addObject("usersFromServer",
                     Arrays.asList(optional.get()));
 
-        // АКА
+        // aka
         optional.ifPresent(
                 user ->
                         modelAndView.addObject("usersFromServer",
                                 Collections.singletonList(user)));
-
 
         return modelAndView;
     }

@@ -33,6 +33,7 @@ public class UsersControllerJpa {
         } else {
             users = usersRepository.findAll();
         }
+
         ModelAndView modelAndView = new ModelAndView("users");
         modelAndView.addObject("usersFromServer", users);
         return modelAndView;
@@ -40,14 +41,17 @@ public class UsersControllerJpa {
 
     @RequestMapping(path = "/users-jpa", method = RequestMethod.POST)
     public String addUser(UserForm userForm, @RequestParam String model) {
-        User newUser = User.from(userForm);
-        usersRepository.save(newUser);
-        if (model != null) {
-            carsRepository.save(
-                    Car.builder()
-                            .model(model)
-                            .owner(newUser)
-                            .build());
+
+        if (userForm.getFirstName() != "" ) {
+            User newUser = User.from(userForm);
+            usersRepository.save(newUser);
+            if (model != null) {
+                carsRepository.save(
+                        Car.builder()
+                                .model(model)
+                                .owner(newUser)
+                                .build());
+            }
         }
         return "redirect:/users-jpa";
     }
